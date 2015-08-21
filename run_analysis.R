@@ -60,7 +60,8 @@ group = list(acc$subject, acc$activity);
 
 for (k in seq(3, 81, length.out = 79))
 {
-	data = as.vector(t(matrix(tapply(acc[, k], group, mean))));
+	
+	data = as.vector(t(tapply(acc[, k], group, mean)));
 	accave = cbind(accave, data);
 	colnames(accave)[k] = colnames(acc)[k];
 }
