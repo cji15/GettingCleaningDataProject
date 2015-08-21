@@ -68,4 +68,4 @@ for (k in seq(3, 81, length.out = 79))
 
 ## write the new data frame to a table
 
-write.table(accave, "tidy_data_upload.txt");
+write.table(accave, "tidy_data_upload.txt", row.name = FALSE);
