@@ -1,12 +1,12 @@
 ## load train and test data
 
-X_train = read.table("train/X_train.txt");
-y_train = read.table("train/y_train.txt");
-subject_train = read.table("train/subject_train.txt")
+X_train = read.table("UCI HAR Dataset/train/X_train.txt");
+y_train = read.table("UCI HAR Dataset/train/y_train.txt");
+subject_train = read.table("UCI HAR Dataset/train/subject_train.txt")
 
-X_test = read.table("test/X_test.txt");
-y_test = read.table("test/y_test.txt");
-subject_test = read.table("test/subject_test.txt")
+X_test = read.table("UCI HAR Dataset/test/X_test.txt");
+y_test = read.table("UCI HAR Dataset/test/y_test.txt");
+subject_test = read.table("UCI HAR Dataset/test/subject_test.txt")
 
 
 ## merge the train and test data
@@ -18,14 +18,14 @@ subject = rbind(subject_train, subject_test);
 
 ## Use descriptive names to name the activities in the dataset
 
-activity_labels = read.table("activity_labels.txt");
+activity_labels = read.table("UCI HAR Dataset/activity_labels.txt");
 y$V1 = as.factor(y$V1);
 levels(y$V1) = activity_labels[, 2];
 
 
 ## load the features vector and find out the variables whose names contain the key words "mean" or "std"
 
-features = read.table("features.txt");
+features = read.table("UCI HAR Dataset/features.txt");
 fmean = grep("mean", features$V2);
 fstd = grep("std", features$V2);
 f = sort(c(fmean, fstd));
